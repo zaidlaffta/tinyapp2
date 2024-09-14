@@ -1,4 +1,4 @@
-configuration FloodAppC {
+configuration FloodC {
 }
 
 implementation {
