@@ -6,7 +6,7 @@ module FloodC {
     interface AMSend;
     interface Receive;
     interface Packet;
-    interface Leds;
+    
   }
 }
 
@@ -49,14 +49,12 @@ implementation {
     call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(flood_msg_t));
 
     // Blink LED when a message is received
-    call Leds.led0Toggle();
     return msg;
   }
 
   event void AMSend.sendDone(message_t *msg, error_t error) {
     if (error == SUCCESS) {
       // Blink LED when a message is sent
-      call Leds.led1Toggle();
     }
   }
 }
